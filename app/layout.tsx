@@ -1,3 +1,4 @@
+import { ThemeProvider } from '@/theme/ThemeProvider'
 import './globals.css'
 
 export const metadata = {
@@ -11,8 +12,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className='w-full h-screen'>
+        <ThemeProvider>
+          <main className='w-full h-screen bg-slate-50 dark:bg-slate-600'>
+            {children}
+          </main>
+        </ThemeProvider>
+      </body>
     </html>
   )
 }
